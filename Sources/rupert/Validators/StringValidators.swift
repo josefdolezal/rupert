@@ -9,12 +9,12 @@
 import Foundation
 
 // MARK: String fixed length validator
-struct StringExactLengthError: Error, LocalizedError {
-    let length: Int
-    var errorDescription: String? { return "The value must have exactly \(length) characters." }
+public struct StringExactLengthError: Error, LocalizedError {
+    public let length: Int
+    public var errorDescription: String? { return "The value must have exactly \(length) characters." }
 }
 
-func length(_ length: Int) -> (String) -> ValidationResult<String> {
+public func length(_ length: Int) -> (String) -> ValidationResult<String> {
     return { x in
         guard x.characters.count == length else {
             return .failure(StringExactLengthError(length: length))
@@ -25,12 +25,12 @@ func length(_ length: Int) -> (String) -> ValidationResult<String> {
 }
 
 // MARK: Format match field validator
-struct PatternMatchError: Error, LocalizedError {
-    let pattern: String
-    var errorDescription: String? { return "This field must match following pattern: `\(pattern)`." }
+public struct PatternMatchError: Error, LocalizedError {
+    public let pattern: String
+    public var errorDescription: String? { return "This field must match following pattern: `\(pattern)`." }
 }
 
-func match(_ expression: NSRegularExpression) -> (String) -> ValidationResult<String> {
+public func match(_ expression: NSRegularExpression) -> (String) -> ValidationResult<String> {
     return { x in
         if expression.matches(in: x, options: [], range: NSRange(location: 0, length: x.characters.count)).count > 0 {
             return .success(x)
@@ -41,12 +41,12 @@ func match(_ expression: NSRegularExpression) -> (String) -> ValidationResult<St
 }
 
 // MARK: Minimal field length validator
-struct MinimalFieldLengthError: Error, LocalizedError {
-    let minimalLength: Int
-    var errorDescription: String? { return "This field must be at least \(minimalLength) characters long." }
+public struct MinimalFieldLengthError: Error, LocalizedError {
+    public let minimalLength: Int
+    public var errorDescription: String? { return "This field must be at least \(minimalLength) characters long." }
 }
 
-func minLength(_ length: Int) -> (String) -> ValidationResult<String> {
+public func minLength(_ length: Int) -> (String) -> ValidationResult<String> {
     return { x in
         if x.characters.count >= length {
             return .success(x)
