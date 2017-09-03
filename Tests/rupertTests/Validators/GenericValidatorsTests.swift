@@ -15,7 +15,7 @@ class GenericValidatorsTests: XCTestCase {
         case test
     }
     
-    func testRequired() {
+    func testRequiredValidator() {
         var value: Bool? = true
 
         switch required(value) {
@@ -35,7 +35,7 @@ class GenericValidatorsTests: XCTestCase {
         }
     }
 
-    func testValueMatch() {
+    func testValueMatchValidator() {
         switch match(true)(true) {
         case let .success(output):
             XCTAssertTrue(output, "Match validator must not modify input value.")
@@ -51,7 +51,7 @@ class GenericValidatorsTests: XCTestCase {
         }
     }
 
-    func testEnumerationType() {
+    func testEnumerationTypeValidator() {
         switch type(TestEnumeration.self)("test") {
         case .success:
             break
