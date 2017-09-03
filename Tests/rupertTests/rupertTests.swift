@@ -105,4 +105,12 @@ class RupertTests: XCTestCase {
             XCTAssertTrue(error is ExpectedError, "Error returned from chain must be equal to the first error occured.")
         }
     }
+
+    static var allTests: [(String, (RupertTests) -> () -> Void)] = [
+        ("testValidationFailsOnFailureInput", testValidationFailsOnFailureInput),
+        ("testValidationPassOnSuccessInput", testValidationPassOnSuccessInput),
+        ("testValidationReturnsErrorFromValidationOnFailure", testValidationReturnsErrorFromValidationOnFailure),
+        ("testValidationReturnsFirstErrorOccurred", testValidationReturnsFirstErrorOccurred),
+        ("testValidationOperatorIsEqualToValidationFunction", testValidationOperatorIsEqualToValidationFunction)
+    ]
 }

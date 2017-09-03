@@ -2,5 +2,7 @@ import XCTest
 @testable import rupertTests
 
 XCTMain([
-    testCase(rupertTests.allTests),
+    testCase(RupertTests.allTests),
+    testCase(GenericValidatorsTests.allTests),
+    testCase(StringValidatorsTests.allTests)
 ])

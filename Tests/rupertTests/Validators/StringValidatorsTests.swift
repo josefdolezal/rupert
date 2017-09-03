@@ -71,4 +71,10 @@ class StringValidatorsTests: XCTestCase {
             XCTAssertTrue(error is PatternMatchError)
         }
     }
+
+    static var allTests: [(String, (StringValidatorsTests) -> () -> Void)] = [
+        ("testStringLengthValidator", testStringLengthValidator),
+        ("testMinimalStringLengthValidator", testMinimalStringLengthValidator),
+        ("testStringFormatMatchValidator", testStringFormatMatchValidator)
+    ]
 }

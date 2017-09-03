@@ -66,4 +66,10 @@ class GenericValidatorsTests: XCTestCase {
             XCTAssertTrue(error is TypeMatchError<TestEnumeration>)
         }
     }
+
+    static var allTests: [(String, (GenericValidatorsTests) -> () -> Void)] = [
+        ("testRequiredValidator", testRequiredValidator),
+        ("testValueMatchValidator", testValueMatchValidator),
+        ("testEnumerationTypeValidator", testEnumerationTypeValidator)
+    ]
 }
