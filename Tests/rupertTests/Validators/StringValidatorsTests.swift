@@ -1,13 +1,13 @@
 //
 //  StringValidatorsTests.swift
-//  rupert
+//  Rupert
 //
 //  Created by Josef Dolezal on 03/09/2017.
 //
 //
 
 import XCTest
-@testable import rupert
+@testable import Rupert
 
 class StringValidatorsTests: XCTestCase {
 

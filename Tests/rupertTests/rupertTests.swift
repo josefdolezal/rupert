@@ -1,13 +1,13 @@
 //
 //  RupertTests.swift
-//  rupert
+//  Rupert
 //
 //  Created by Josef Dolezal on 02/09/2017.
 //
 //
 
 import XCTest
-@testable import rupert
+@testable import Rupert
 
 class RupertTests: XCTestCase {
 

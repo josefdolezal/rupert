@@ -1,5 +1,5 @@
 import XCTest
-@testable import rupertTests
+@testable import RupertTests
 
 XCTMain([
     testCase(RupertTests.allTests),
