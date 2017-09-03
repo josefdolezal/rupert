@@ -14,11 +14,6 @@ public enum ValidationResult<Value>: CustomStringConvertible {
 }
 
 // MARK: Result binding
-precedencegroup LeftAssociative {
-    associativity: left
-}
-
-infix operator >>=: LeftAssociative
 
 public func validate<InputValue, OutputValue>(_ a: ValidationResult<InputValue>, _ f: (InputValue) -> ValidationResult<OutputValue>) -> ValidationResult<OutputValue> {
     switch a {
@@ -27,6 +22,8 @@ public func validate<InputValue, OutputValue>(_ a: ValidationResult<InputValue>,
     }
 }
 
-public func >>=<InputValue, OutputValue>(_ a: ValidationResult<InputValue>, _ f: (InputValue) -> ValidationResult<OutputValue>) -> ValidationResult<OutputValue> {
+// MARK: Validation chaining operator
+
+public func >>= <InputValue, OutputValue>(_ a: ValidationResult<InputValue>, _ f: (InputValue) -> ValidationResult<OutputValue>) -> ValidationResult<OutputValue> {
     return validate(a, f)
 }
